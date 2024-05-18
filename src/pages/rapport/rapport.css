@@ -1,0 +1,14 @@
+.apparails {
+  display: flex;
+}
+
+.apparails .apparailContainer {
+  flex: 6;
+}
+
+.apparails .apparailContainer .charContainer {
+  padding: 20px;
+  gap: 20px;
+}
+
+/*# sourceMappingURL=apparail.css.map */

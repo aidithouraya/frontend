@@ -1,0 +1,38 @@
+.EtatDeCrible {
+  border: 1px solid black;
+  margin: 2% 0;
+  padding: 5px;
+  background-color: lightskyblue;
+}
+.titleEtat {
+  background-color: lightgray;
+  font-size: 2rem;
+  padding: 5px 20px;
+  font-weight: bold;
+}
+.etatP {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.etatP p {
+  background-color: black;
+  padding: 5px 10px;
+  color: lightsalmon;
+}
+.etatP p:first-child {
+  color: lightgreen;
+}
+.etatP p:last-child {
+  color: red;
+}
+.spanEtat {
+  width: 25px;
+  height: 25px;
+  display: block;
+  margin: 20px auto 10px;
+  border-radius: 100% !important;
+  border: 1px solid black !important;
+  background-color: rgb(212, 210, 40) !important;
+}

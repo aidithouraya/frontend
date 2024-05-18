@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "apparail.scss",
+    "apparail.css"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACI,aAAA;ACCJ;ADCI;EACI,OAAA;ACCR;ADCQ;EAEI,aAAA;EACA,SAAA;ACAZ",
+  "file": "apparail.css"
+}

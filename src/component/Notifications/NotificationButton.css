@@ -1,0 +1,21 @@
+.notification-icon {
+  position: relative;
+}
+
+.notification-dropdown {
+  z-index: 100;
+  position: absolute;
+  outline: 1px solid black;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  gap: 5px;
+} /*# sourceMappingURL=NotificationButton.css.map */

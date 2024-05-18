@@ -1,0 +1,40 @@
+/* CSS pour le deuxième code (style du formulaire) */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ajoutez cette ligne pour centrer verticalement le contenu */
+  text-align: center;
+  flex-direction: column;
+  width: 50%; /* Ajustez la largeur selon vos besoins */
+  padding: 20px;
+  margin-right: 20px; /* Ajoutez cette ligne pour l'espace à droite */
+  border-radius: 5px;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input,
+.form-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}

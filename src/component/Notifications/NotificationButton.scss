@@ -1,0 +1,19 @@
+.notification-icon {
+  position: relative;
+}
+.notification-dropdown {
+  z-index: 100;
+  position: absolute;
+  outline: 1px solid black;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  gap: 5px;
+}
