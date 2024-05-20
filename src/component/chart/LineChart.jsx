@@ -13,6 +13,8 @@ import {
   ResponsiveContainer
 } from 'recharts'
 
+import {BACKEND_URL}  from '../../env'
+
 export default function Chart({ type }) {
   const { notifications, setNotifications } = useContext(NotificationContext)
   const [objectData, setObjectData] = React.useState([])
@@ -43,7 +45,7 @@ export default function Chart({ type }) {
     setNotifications(checks_errors)
   }
   async function fetchData() {
-    const response = await fetch(`http://127.0.0.1:5000/monitor/get`)
+    const response = await fetch(`${BACKEND_URL}/monitor/get`)
       .then(response => response.json())
       .then(data => {
         setObjectData(data)
@@ -69,7 +71,7 @@ export default function Chart({ type }) {
         </Typography>
 
         <div style={{ width: '100%', height: 350 }}>
-          <ResponsiveContainer width='100%' height='100%'>
+          <ResponsiveContainer width='100%' height='100%' >
             <LineChart
               data={objectData}
               margin={{
@@ -96,13 +98,15 @@ export default function Chart({ type }) {
                 stroke='#82ca9d'
                 strokeDasharray='3 4 5 2'
               />
+
+              
             </LineChart>
           </ResponsiveContainer>
         </div>
       </div>
       <div className='temp-chart' style={{ width: '100%', height: 400 }}>
         <Typography component='h2' variant='h6' color='primary' gutterBottom>
-        Temperature Data
+          Temperature Data
         </Typography>
         <div style={{ width: '100%', height: 350 }}>
           <ResponsiveContainer width='100%' height='100%'>

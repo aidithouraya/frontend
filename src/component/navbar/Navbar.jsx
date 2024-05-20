@@ -5,6 +5,7 @@ import MessageIcon from '@mui/icons-material/Message'
 import SegmentIcon from '@mui/icons-material/Segment'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import NotificationButton from '../Notifications/notificationButton.jsx'
+import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
   // États locaux pour suivre si les notifications et les messages sont activés
   const [notificationsEnabled, setNotificationsEnabled] = useState(false)
@@ -15,6 +16,7 @@ const Navbar = () => {
   const toggleMessages = () => {
     setMessagesEnabled(!messagesEnabled)
   }
+  const navigate = useNavigate()
 
   return (
     <div className='navbar'>
@@ -34,7 +36,7 @@ const Navbar = () => {
           <div className='item'>
             <SegmentIcon className='icon' />
           </div>
-          <div className='item'>
+          <div className='item' onClick={()=>navigate('/profile')}>
             <AccountCircleIcon className='icon' />
           </div>
         </div>

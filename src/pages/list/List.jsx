@@ -5,7 +5,7 @@ import Datatable from '../../component/dataTable/DataTable'
 import { Navigate } from 'react-router-dom'
 
 const List = ({ role }) => {
-  console.log(role)
+ // console.log(role)
   return (
     <>
       {role == 'admin' ? (

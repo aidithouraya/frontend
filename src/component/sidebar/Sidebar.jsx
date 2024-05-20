@@ -6,6 +6,7 @@ import MapIcon from '@mui/icons-material/Map'
 import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt'
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings'
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import BatchPrediction from '@mui/icons-material/BatchPrediction'
 
 import TimelineIcon from '@mui/icons-material/Timeline'
 import LogoutIcon from '@mui/icons-material/Logout'
@@ -45,6 +46,13 @@ const Sidebar = () => {
             <Link to='/' className='link'>
               <DashboardIcon className='icon' />
               <span>Dashboard</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link to='/predict' className='link'>
+              <BatchPrediction className='icon' />
+              <span>Predict</span>
             </Link>
           </li>
           <li>

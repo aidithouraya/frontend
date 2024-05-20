@@ -4,7 +4,9 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import './App.css'
 import Home from './pages/home/Home'
+import Predict from './pages/home/predict'
 import List from './pages/list/List'
+import ListByRole from './pages/list/listbyrole'
 import Login from './pages/login/Login'
 import New from './pages/new/New'
 import Single from './pages/single/Single'
@@ -54,6 +56,7 @@ function App() {
               <Routes>
                 <Route path='/'>
                   <Route index element={<Home role={role} />} />
+                  <Route path='/predict' element={<Predict role={role} />} />
                   <Route path='login' element={<Login />} />
                   <Route path="newpass" element={<Chech />} />
                   <Route path='ForgetPassword' element={<ForgetPassword />} />
@@ -70,6 +73,9 @@ function App() {
                   />
                   <Route path='stast' element={<TrakingReels role={role} />} />
                   <Route path='' element={<TrakingReels role={role} />} />
+
+                  <Route path='by-role/:role' element={<ListByRole  />} />
+                    
 
                   <Route path='users'>
                     <Route index element={<List role={role} />} />

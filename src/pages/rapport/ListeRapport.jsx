@@ -25,24 +25,9 @@ const ListeRapport = () => {
     setData(data.filter(item => item._id !== id))
   }
   const rapportColumns = [
-    { field: '_id', headerName: 'ID', width: 70 },
-    {
-      field: '',
-      headerName: 'Repports',
-      width: 230,
-      renderCell: params => {
-        return <div className='cellWithImg'>{params.row.device_name}</div>
-      }
-    },
-   
-  
-
-
-
-
-
-
-    
+    { field: '_id', headerName: 'ID', width: 230 },
+    { field: 'rapport', headerName: 'Rapport', width: 230 },
+    { field: 'createdAt', headerName: 'Created dAt', width: 330 },
   
   ]
   const actionColumn = [

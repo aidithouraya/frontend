@@ -1,102 +1,103 @@
-import React, { useEffect, useState } from 'react'
-import './profile.scss'
-import Sidebar from '../../component/sidebar/Sidebar'
-import Navbar from '../../component/navbar/Navbar'
-import { decodeJwt } from '../../utils/getToken'
+import React, { useEffect, useState } from 'react';
+import './profile.scss';
+import Sidebar from '../../component/sidebar/Sidebar';
+import Navbar from '../../component/navbar/Navbar';
+import { decodeJwt } from '../../utils/getToken';
 import {
   Grid,
   Card,
   CardContent,
   Typography,
   Box,
-  TextField,
-  Button
-} from '@mui/material'
-import Logo from '../../assets/logo.png'
-import newRequest from '../../utils/newRequest'
+  Button,
+  Avatar,
+} from '@mui/material';
+import newRequest from '../../utils/newRequest';
+import PersonIcon from '@mui/icons-material/Person';
 
 const Profile = ({ currentUser }) => {
-  const [details,setDetails] = useState({});
-  const [UserId,setUserId] = useState('')  
+  const [details, setDetails] = useState({});
+  const [userId, setUserId] = useState('');
 
-  useEffect( ()=>{
-    const token = localStorage.getItem('accessToken')
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
     if (token) {
-      const decodedJwt =  decodeJwt(token)
-      setUserId(decodedJwt.userId)
-      newRequest.get(`/user/${decodedJwt.userId}`).then((res)=>{setDetails(res.data.user)})
-       }
-
-  },[])
-  const handleChange = e => {
-    // Mettre en œuvre la logique pour gérer les changements d'entrée ici
-    console.log(e.target.value)
-  }
+      const decodedJwt = decodeJwt(token);
+      setUserId(decodedJwt.userId);
+      newRequest.get(`/user/${decodedJwt.userId}`).then((res) => {
+        setDetails(res.data.user);
+      });
+    }
+  }, []);
 
   return (
-    <>
-      {currentUser && (
-        <div className='profile'>
-          <Sidebar />
-          <div className='profileContainer ml-2 pt-2 mt-4'>
-            <div>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={3}>
-                  <Card>
-                    <CardContent>
-                      <div className='user-profile'>
-                        <div className='user-avatar'>
-                          <img src={Logo} alt=' Admin' className='logo' />
-                        </div>
-                        <Typography variant='h5' className='user-name'>
-                          {' '}
-                          User name:{' '}
+    <div className='home'>
+      <Sidebar />
+      <div className='homeContainer'>
+        <Navbar />
+        {currentUser && (
+          <div className='profileContainer' style={{ marginTop: '4rem' }}>
+            <Typography variant='h4' style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              Personal Details
+            </Typography>
+            <Grid
+              container
+              justifyContent='center'
+              alignItems='center'
+              style={{ minHeight: 'calc(100vh - 300px)' }}
+            >
+              <Grid item xs={12} md={8}>
+                <Card
+                  sx={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    color: '#fff',
+                    borderRadius: '16px',
+                    boxShadow: '0 4px 20px 0 rgba(0,0,0,0.1)',
+                  }}
+                >
+                  <CardContent>
+                    <Box display='flex' justifyContent='center' mb={3}>
+                      <Avatar
+                        sx={{ bgcolor: 'black', width: 80, height: 80 }}
+                      >
+                        <PersonIcon sx={{ fontSize: 50 }} />
+                      </Avatar>
+                    </Box>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant='body1'>
+                          <strong>Name:</strong>
+                          <p>{details.username}</p>
                         </Typography>
-                        <Typography variant='subtitle1' className='user-email'>
-                          {' '}
-                          {details.username}{' '}
-                        </Typography>
-                      </div>
-                     
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={12} md={9}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant='h6' gutterBottom>
-                        Personal Details
-                      </Typography>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                          <label> Email : 
-                            <p>{details.email}</p>
-                          </label>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <label> Role : 
-                            <p>{details.role}</p>
-                          </label>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                        <label> Etat : 
-                            <p>{details.etat}</p>
-                          </label>
-                        </Grid>
                       </Grid>
-                 
-                      <Box sx={{ m: 2 }}>
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant='body1'>
+                          <strong>Email:</strong>
+                          <p>{details.email}</p>
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant='body1'>
+                          <strong>Role:</strong>
+                          <p>{details.role}</p>
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <Typography variant='body1'>
+                          <strong>State:</strong>
+                          <p>{details.etat}</p>
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
               </Grid>
-            </div>
+            </Grid>
           </div>
-        </div>
-      )}
-    </>
-  )
-}
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

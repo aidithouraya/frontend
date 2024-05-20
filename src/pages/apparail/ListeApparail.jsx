@@ -24,7 +24,7 @@ const ListeApparail = () => {
     setData(data.filter(item => item._id !== id))
   }
   const apareilColumns = [
-    { field: '_id', headerName: 'ID', width: 70 },
+    { field: '_id', headerName: 'ID', width: 230 },
     {
       field: 'device_name',
       headerName: 'device_name',

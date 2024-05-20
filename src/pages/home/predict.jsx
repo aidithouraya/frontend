@@ -5,10 +5,10 @@ import Navbar from '../../component/navbar/Navbar'
 import Widget from '../../component/widgets/Widget'
 import FeaturedChart from '../../component/featured/FeaturedChart'
 import Chart from '../../component/chart/Chart'
-import LineChart from '../../component/chart/LineChart'
+import LineChart from '../../component/chart/LineChartPredict'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-
+import { Navigate } from 'react-router-dom'
 import { decodeJwt } from '../../utils/getToken'
 
 const Home = () => {
@@ -36,44 +36,9 @@ const Home = () => {
       <Sidebar />
       <div className='homeContainer' >
         <Navbar />
-        <Box sx={{ flexGrow: 1, p: 2, m: 2 }} >
+        <Box sx={{ flexGrow: 1, p: 2, m: 2 }}>
           <Grid container spacing={2}>
-            <Grid item xs={3} md={3}>
-              <Widget
-                title={'Users'}
-                type='Users'
-                role='users'
-                sxx={6}
-                statestique={statestique}
-              />
-            </Grid>
-            <Grid item xs={3} md={3}>
-              <Widget
-                title={'Admin'}
-                type='Admins'
-                role='admin'
-                sxx={6}
-                statestique={statestique}
-              />
-            </Grid>
-            <Grid item xs={3} md={3}>
-              <Widget
-                title={'Engineer'}
-                type='Engineers'
-                role='engineer'
-                sxx={6}
-                statestique={statestique}
-              />
-            </Grid>
-            <Grid item xs={3} md={3}>
-              <Widget
-                title={'supervisor'}
-                type='Supervisor'
-                role='supervisor'
-                sxx={6}
-                statestique={statestique}
-              />
-            </Grid>
+            
             
           </Grid>
         </Box>

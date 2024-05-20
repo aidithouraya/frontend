@@ -1,11 +1,17 @@
 .navbar {
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 139px;
   display: flex;
   align-items: center;
   font-size: 14px;
   color: #555;
+  border-bottom: 1px solid lightgray;
+  
+  top:0;
+  z-index: 50;
+
+  background-color: whitesmoke;
 
   .wrapper {
     width: 100%;
